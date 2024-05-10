@@ -1,0 +1,55 @@
+{% extends "base.html" %} 
+{% load static %} 
+
+{% block title %}LogoBlog{% endblock title %} 
+
+{% block css_files %} 
+<link rel="stylesheet" href="{% static "blog/index.css" %}"> 
+<link rel="stylesheet" href="{% static "blog/post.css"%}"> 
+{% endblock css_files %} 
+
+{% block content %}
+<section id="welcome">
+  <header>
+    <img src="static/blog/images/logo.jpg" alt="logo" />
+    <h2>Logopedski blog!</h2>
+  </header>
+  <p>
+    Zdravo! Ja sam Milica, diplomirani defektolog - master logoped, kreator ovog
+    bloga.
+  </p>
+  <p>Na ovom blogu saznaćete sve o dečijem razvoju i još mnogo toga.</p>
+</section>
+
+<section id="latest-posts">
+  <h2>Poslednji postovi</h2>
+  <ul>
+    {% for post in posts %}
+    <li>{% include "blog/includes/post.html" %}</li>
+    {% endfor %}
+  </ul>
+</section>
+
+<section id="about">
+  <h3>Čime se logoped bavi?</h3>
+  <p>
+    Logoped je stručno lice koje vrši procenu, dijagnostiku, prevenciju i
+    tretman govorno-jezickih poremecaja.
+    <br />Logoped može raditi sa decom i odraslima svih uzrasta i starosti.
+  </p>
+  <h4>U govorno-jezičke poremećaje kojima se logoped bavi spadaju:</h4>
+  <ul>
+    <li>Dislalija - poremećaj artikulacije</li>
+    <li>Disfazija - poremećaj govora i jezika</li>
+    <li>Poremećaji fluetnosti - mucanje, usporen ili brzoplet govor</li>
+    <li>Disleksija - poremećaj čitanja</li>
+    <li>Disgrafija - poremećaj pisanja</li>
+    <li>Disfonija - poremećaj glasa</li>
+    <li>Verbalna apraksija</li>
+    <li>Dizartrija - neurogeni poremećaj govora</li>
+    <li>Afazija - stečeni jezički poremećaj</li>
+    <li>Poremećaji hranjenja i gutanja</li>
+  </ul>
+</section>
+
+{% endblock %}
